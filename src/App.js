@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GreetingCat from "./GreetingCat";
+import RandomCat from "./RandomCat";
 
-function App() {
+function App({ params }) {
+  useEffect(() => {
+    console.log("🚀 ~ params", params);
+  }, [params]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<RandomCat />} />
+        <Route exact path="/cat/:greeting" element={<GreetingCat />} />
+        <Route exact path="/cat" element={<div>a</div>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
