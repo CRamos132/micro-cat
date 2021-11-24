@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GreetingCat from "./GreetingCat";
 import RandomCat from "./RandomCat";
 
-function App({ params }) {
-  useEffect(() => {
-    console.log("🚀 ~ params", params);
-  }, [params]);
+function App() {
   return (
     <BrowserRouter>
       <Routes>
